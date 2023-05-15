@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+  html {
+    font-size: 93.75%;
+  }
+
+  .container #balance {
+    display: block;
+  }
+  .container #balance .card:last-child {
+    border: none;
+  }
+}/*# sourceMappingURL=responsive.css.map */

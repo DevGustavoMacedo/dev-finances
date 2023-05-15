@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 87.5%;
+}
+
+body {
+  background-color: #eeeeee;
+}
+body.darkMode {
+  background-color: #141620;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+h2 {
+  font-weight: 700;
+  color: #363f8c;
+  font-size: 1.1rem;
+  margin: 0 0 2rem;
+}
+
+@-webkit-keyframes light {
+  0% {
+    box-shadow: 0 0 1px #12a454;
+    transform: rotateY(0deg);
+  }
+  100% {
+    box-shadow: 0 0 30px #12a454;
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes light {
+  0% {
+    box-shadow: 0 0 1px #12a454;
+    transform: rotateY(0deg);
+  }
+  100% {
+    box-shadow: 0 0 30px #12a454;
+    transform: rotateY(360deg);
+  }
+}
+header {
+  background-color: #363f8c;
+  padding: 2rem 0 12rem;
+  text-align: center;
+}
+header img:last-of-type {
+  width: 30px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #141620;
+  border-radius: 3px;
+  border: 5px solid #141620;
+  -webkit-animation: light 2000ms 2 ease-in-out alternate;
+          animation: light 2000ms 2 ease-in-out alternate;
+}
+header img:last-of-type.active {
+  background-color: #12a454;
+  border: 5px solid #12a454;
+}
+
+.container {
+  width: min(90vw, 800px);
+  margin: auto;
+}
+.container #balance {
+  margin-top: -8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.container #balance .card {
+  background-color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
+}
+.container #balance .card.darkMode {
+  background-color: #0b0c12;
+  color: #ffffff;
+}
+.container #balance .card h3 {
+  color: #363f8c;
+  font-weight: 400;
+  margin-top: 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container #balance .card p {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 1rem;
+}
+.container #balance .card:last-child {
+  background-color: #363f8c;
+  border: 2px solid #f0f0f0;
+}
+.container #balance .card:last-child.darkMode {
+  border: 2px solid #0f111a;
+}
+.container #balance .card:last-child h3,
+.container #balance .card:last-child p {
+  color: #ffffff;
+}
+.container a {
+  color: #49aa26;
+  text-decoration: none;
+}
+.container a:hover {
+  font-weight: 700;
+}
+.container #transaction {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+.container #transaction .button.new {
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+.container #transaction #data-table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+}
+.container #transaction #data-table th {
+  background-color: #ffffff;
+  color: #363f8c;
+  font-weight: 400;
+  padding: 1rem 2rem;
+  text-align: left;
+}
+.container #transaction #data-table th.darkMode {
+  background-color: #0b0c12;
+}
+.container #transaction #data-table tbody tr:hover {
+  opacity: 0.6;
+}
+.container #transaction #data-table td {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+}
+.container #transaction #data-table td.darkMode {
+  background-color: #0b0c12;
+  color: #ffffff;
+}
+.container #transaction #data-table td.income {
+  color: #12a454;
+  white-space: nowrap;
+}
+.container #transaction #data-table td.expense {
+  color: #e92929;
+  white-space: nowrap;
+}
+.container #transaction #data-table td:first-child,
+.container #transaction #data-table th:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+.container #transaction #data-table td:last-child,
+.container #transaction #data-table th:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+.modal-overlay.active {
+  visibility: visible;
+}
+.modal-overlay .modal {
+  background-color: #ffffff;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+}
+.modal-overlay .modal.darkMode {
+  background-color: #0b0c12;
+}
+.modal-overlay .modal input {
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.8rem;
+  margin: 0.8rem 0 0;
+  width: 100%;
+  background-color: #dddddd;
+  color: #363f8c;
+}
+.modal-overlay .modal input.darkMode {
+  background-color: #141620;
+  color: #ffffff;
+}
+.modal-overlay .modal input:first-of-type {
+  margin-top: 0;
+}
+.modal-overlay .modal .help {
+  opacity: 0.6;
+}
+.modal-overlay .modal .help.darkMode {
+  color: #ffffff;
+}
+.modal-overlay .modal span {
+  color: #e92929;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background-color: rgba(180, 41, 41, 0.2);
+}
+.modal-overlay .modal .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-overlay .modal .wrapper .button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  text-decoration: none;
+  margin-top: 1rem;
+  border-radius: 0.25rem;
+}
+.modal-overlay .modal .wrapper .button.cancel {
+  color: #e92929;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e92929;
+}
+.modal-overlay .modal .wrapper .button.submit {
+  color: #ffffff;
+  background-color: #12a454;
+  margin-left: 2rem;
+}
+.modal-overlay .modal .wrapper .button:hover {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  color: #363f8c;
+  padding: 4rem 0 0.5rem;
+}
+footer span {
+  color: #49aa26;
+}
+footer span:first-child {
+  font-size: 2rem;
+}
+footer span:last-child {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 93.75%;
+  }
+
+  .container #balance {
+    display: block;
+  }
+  .container #balance .card:last-child {
+    border: none;
+  }
+}/*# sourceMappingURL=main.css.map */

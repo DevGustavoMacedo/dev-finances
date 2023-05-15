@@ -1,0 +1,14 @@
+@media (max-width: 768px) {
+  html {
+    font-size: 93.75%;
+  }
+  .container {
+    #balance {
+      display: block;
+  
+      .card:last-child {
+        border: none;
+      }
+    }
+  }
+}
