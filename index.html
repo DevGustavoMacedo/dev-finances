@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dev.finance$</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <img src="./assets/logo.svg" alt="Logo dev finances" />
+      <img id="darkMode" src="./assets/moon-solid.svg" alt="Dark Mode" />
+    </header>
+
+    <main class="container">
+      <section id="balance">
+        <h2 class="sr-only">Balanço</h2>
+
+        <div class="card">
+          <h3>
+            <span>Entradas</span>
+            <img src="./assets/income.svg" alt="Icone entradas" />
+          </h3>
+          <p id="incomeBalance">R$0,00</p>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span>Saídas</span>
+            <img src="./assets/expense.svg" alt="Icone saídas" />
+          </h3>
+          <p id="expenseBalance">R$0,00</p>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span>Total</span>
+            <img src="./assets/total.svg" alt="Icone total" />
+          </h3>
+          <p id="totalBalance">R$0,00</p>
+        </div>
+      </section>
+
+      <section id="transaction">
+        <h2 class="sr-only">Transações</h2>
+
+        <a href="#" class="button new toggleModal">+ Nova Transação</a>
+
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>Data</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <div class="modal-overlay">
+      <div class="modal">
+        <h2>+ Nova Transação</h2>
+        <form action="">
+          <label for="description" class="sr-only">Descrição</label>
+          <input type="text" name="description" id="description" placeholder="Descrição">
+          <label for="amount" class="sr-only">Quantia</label>
+          <input type="number" name="amount" id="amount" placeholder="00,00" step="0.01">
+          <small class="help">(Sinal negativo para despesas e vírgula para centavos)</small>
+          <input type="date" name="date" id="date" placeholder="01/01/2021">
+          <span id="warning"></span>
+          <div class="wrapper">
+            <a href="#" class="button cancel toggleModal">Cancelar</a>
+            <button class="button submit">Adicionar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>dev<span>.</span>finance<span>$</span></p>
+    </footer>
+
+    <script src="./scripts.js"></script>
+  </body>
+</html>
